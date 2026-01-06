@@ -1,0 +1,5 @@
+
+        $cociente = intdiv(1234, 5);
+    
+        
+        $cantidadDigitos = strlen((string)abs($cociente));

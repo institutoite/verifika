@@ -1,0 +1,20 @@
+/* Colores corporativos y estilos reutilizables */
+:root {
+    --primary-color: rgb(38, 186, 165);
+    --secondary-color: rgb(55, 95, 122);
+    --white: #fff;
+    --gray: #f4f6f8;
+    --gray-dark: #bfc9d1;
+    --light-primary: rgba(38, 186, 165, 0.12);
+}
+.btn-corporativo { background: var(--primary-color); color: #fff; border: none; font-weight: 500; transition: all 0.25s; }
+.btn-corporativo:hover { background: var(--secondary-color); }
+.btn-outline-corporativo { border: 2px solid var(--primary-color); color: var(--primary-color); background: transparent; transition: all 0.25s; }
+.btn-outline-corporativo:hover { background: var(--primary-color); color: #fff; }
+.brand-logo { font-size: 2.1rem; font-weight: 800; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 999; }
+.whatsapp-float a { display: flex; align-items: center; background: #25d366; color: #fff; padding: 12px 18px; border-radius: 40px; font-weight: bold; box-shadow: 0 4px 16px rgba(38,186,165,0.18); text-decoration: none; font-size: 1.1rem; }
+.whatsapp-float a:hover { background: #128c7e; }
+.section-title { color: var(--primary-color); font-weight: 700; margin-bottom: 1.5rem; }
+.section-bg { background: var(--gray); }
+.icon-circle { background: var(--light-primary); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1rem; }

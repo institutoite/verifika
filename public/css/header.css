@@ -1,0 +1,62 @@
+/* Estilos del Encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(237, 244, 243); 
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.3s, padding 0.3s;
+    margin-bottom: 50px;
+}
+
+/* Logo y Nombre de la App */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Slogan */
+.slogan {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgb(55,95,122); /* Color secundario */
+    text-align: center;
+}
+
+/* Icono de WhatsApp */
+.whatsapp-btn {
+    background-color: rgb(55,95,122); /* Color secundario */
+    color: rgb(38, 186, 165);
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Efecto al hacer scroll */
+.scrolled {
+    background-color: rgb(55,95,122); /* Cambia el fondo al color secundario */
+    padding: 10px 20px;
+}

@@ -1,0 +1,69 @@
+html {
+    height: 100%;
+  }
+  
+  body {
+    height: 100%;
+    margin: 0;
+    background: #162944;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #outer {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    gap: 20px; /* Espacio entre los botones */
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .button_slide {
+    color: rgb(55,95,122);
+    border: 2px solid rgb(55, 95, 122);
+    border-radius: 0px;
+    padding: 18px 36px;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #26baa5;
+    transition: ease-out 0.4s;
+    flex: 1 1 auto; /* Permite que los botones crezcan y se ajusten */
+    text-align: center;
+  }
+  
+  .slide_down:hover {
+    box-shadow: inset 0 100px 0 0 #26baa5;
+    color: white;
+  }
+  
+  .slide_right:hover {
+    box-shadow: inset 400px 0 0 0 #26baa5;
+    color: white;
+  }
+  
+  .slide_left:hover {
+    box-shadow: inset 0 0 0 50px #26baa5;
+    color: white;
+  }
+  
+  .slide_diagonal:hover {
+    box-shadow: inset 400px 50px 0 0 #26baa5;
+    color: white;
+  }
+  
+  /* Media query para pantallas pequeñas (menos de 768px) */
+  @media (max-width: 768px) {
+    #outer {
+      flex-direction: column; /* Cambia la dirección a vertical */
+      align-items: stretch; /* Hace que los botones ocupen todo el ancho */
+    }
+  
+    .button_slide {
+      width: 100%; /* Ocupa todo el ancho disponible */
+    }
+  }

@@ -1,0 +1,132 @@
+@font-face {
+font-family:'mifuente';
+src: url('Montserrat-light.otf');
+}
+.ColorTitulo{
+
+      font-family:'mifuente'; 
+			background:rgba(38,186,165,1);
+			color:white; 
+	}
+.Color{
+			background:rgb(10,192,171);
+	}
+.Colorpar{
+			background:rgb(38,186,165);
+}
+
+.Colorimpar{
+			background:rgba(38,186,165);
+}
+.colorturquesa{
+			background:rgba(38,186,165);
+      color:white;
+}
+.colorazul{
+			background:rgba(55,95,122);
+      color:white;
+}
+table{
+  font-family:'mifuente'; 
+}
+.espaciado{
+	margin-top:50px;
+}
+
+.LetraChica{
+  font-size:12px; 
+  font-family:'mifuente'; 
+}
+.LetraMediana{
+
+}
+
+.LetraGrande{
+
+}
+
+.zoom:hover{
+        transform : scale(2);
+        -moz-transform : scale(2);      /* Firefox */
+        -webkit-transform : scale(3);   /* Chrome - Safari */
+        -o-transform : scale(2);        /* Opera */
+}
+
+.redondo {
+  background:rgb(0,0,0); 
+  width: 49px;
+  height: 49px;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 20px;
+  line-height: 2.00;
+  border-radius: 50%;
+}
+.nota{
+	position: relative;
+}
+.noti{
+	color: rgb(150,0,0);
+	background: red;
+	border-radius: 50%;
+	position:absolute;
+	top:0px;
+	left: 50px;  	
+}
+
+.btn-circle {
+  width: 49px;
+  height: 49px;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 20px;
+  line-height: 2.00;
+  border-radius: 30px;
+}
+
+.btn-circle-micro {
+  width: 19px;
+  height: 19px;
+  text-align: center;
+  padding: 1px 0;
+  font-size: 13px;
+  line-height: 0.1;
+  border-radius: 30px;
+}
+
+.btn-circle-sm {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  padding: 2px 0;
+  font-size: 20px;
+  line-height: 1.65;
+  border-radius: 30px;
+}
+
+.btn-circle-lg {
+  width: 79px;
+  height: 79px;
+  text-align: center;
+  padding: 13px 0;
+  font-size: 30px;
+  line-height: 2.00;
+  border-radius: 70px;
+}
+
+.btn span.glyphicon {         
+  opacity: 0;       
+}
+.btn.active span.glyphicon {        
+  opacity: 1;       
+}
+.fijo{
+  position: fixed;
+}
+
+
+.icono{
+   width:50px;
+   height:50px; 
+}
+

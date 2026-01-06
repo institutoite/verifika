@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(65,86,65, 0.9), rgba(55,95,122, 0.9)), url('background-math.jpg');
+    background-size: cover;
+    color: white;
+}
+
+
+.welcome-text h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.azul{
+    background-color: rgb(55, 95, 122);
+    color: white;
+}
+
+.welcome-text p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.operation-btn {
+    text-decoration: none;
+    background-color: rgba(55, 95, 122, 0.8);
+    padding: 9px 13px;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(38,186,165,1);
+}
+
+.operation-btn:hover {
+    background-color: rgb(5, 139, 119);
+    color: rgb(251, 251, 251);
+    border: #41a7c1;
+    
+}
+
+.center-image {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(38,186,165,1);
+}
+
+/*footer*/
+footer {
+    background-color: rgba(38,186,165,1);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer p {
+    margin: 10px 0;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+footer span {
+    font-weight: bold;
+    color: #41a7c1; /* Turquesa que armoniza con el diseño */
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: rgb(55, 95, 122);
+    margin: 0 15px;
+    font-size: 0.9em;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+/*%%%%%%%%%%%%%%%%%%%%%%% MENU %%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
+/* Cambiar el color de fondo y texto del enlace activo en el sidebar */
+.nav-sidebar .nav-link.active {
+    background-color: #28a745; /* Color de fondo (verde en este caso, puedes cambiarlo) */
+    color: #ffffff; /* Color del texto */
+}
+
+/* Cambiar el color de los iconos dentro del enlace activo */
+.nav-sidebar .nav-link.active i {
+    color: #ffffff; /* Color de los iconos en el enlace activo */
+}
