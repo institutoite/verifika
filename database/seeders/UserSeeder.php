@@ -15,9 +15,9 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
-            'phone' => '70000000',
-            'email' => 'admin@propuestos.com',
-            'password' => Hash::make('123456'),
+            'phone' => '71039910',
+            'email' => '71039910@verifika.ite.com.bo',
+            'password' => Hash::make('123456789'),
         ]);
     }
 }

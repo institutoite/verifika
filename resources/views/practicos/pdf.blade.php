@@ -370,7 +370,17 @@
                                 <table class="suma-matriz">
                                     @foreach($operandos as $j => $op)
                                         <tr>
-                                            <td class="{{ $j == $filaSigno ? 'signo' : '' }}">{{ $j == $filaSigno ? '+' : '' }}</td>
+                                            <td class="{{ $j == $filaSigno ? 'signo' : '' }}">
+                                                @if($j == $filaSigno)
+                                                    @if($ej && $ej->tipo === 'multiplicacion')
+                                                        x
+                                                    @elseif($ej && $ej->tipo === 'resta')
+                                                        -
+                                                    @else
+                                                        +
+                                                    @endif
+                                                @endif
+                                            </td>
                                             @php $digitos = str_pad($op->valor, $maxDigitos, ' ', STR_PAD_LEFT); @endphp
                                             @for($d = 0; $d < $maxDigitos; $d++)
                                                 <td @if($j == $nLocal-1) class="borde-suma" @endif>{{ $digitos[$d] }}</td>
