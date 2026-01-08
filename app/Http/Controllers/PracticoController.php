@@ -13,7 +13,7 @@ class PracticoController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $practicos = Practico::where('user_id', $user->id)->orderBy('fecha', 'desc')->get();
+        $practicos = Practico::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
         return view('practicos.index', compact('practicos'));
     }
 

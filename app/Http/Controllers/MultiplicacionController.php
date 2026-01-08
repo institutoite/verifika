@@ -42,7 +42,7 @@ class MultiplicacionController extends Controller
         // Crear un nuevo Practico y asociar los ejercicios
         $user = auth()->user();
         $practico = Practico::create([
-            'nombre' => 'Multiplicaciones ' . now()->format('Y-m-d H:i:s'),
+            'nombre' => 'Multiplicación: multiplicando ' . $digitosMultiplicando . ' dígitos, multiplicador ' . $digitosMultiplicador . ' dígitos, nivel ' . $grado,
             'descripcion' => 'Práctico generado automáticamente para multiplicaciones',
             'user_id' => $user ? $user->id : null,
         ]);

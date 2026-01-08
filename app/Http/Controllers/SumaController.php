@@ -33,7 +33,7 @@ class SumaController extends Controller
 
         // Crear un práctico asociado al usuario logueado
         $practico = Practico::create([
-            'nombre' => 'Práctico de sumas '.now()->format('Y-m-d H:i:s'),
+            'nombre' => 'Suma: sumandos ' . $request->digitos_sumandos . ' dígitos, nivel ' . $request->dificultad,
             'fecha' => now(),
             'user_id' => Auth::id(),
         ]);
