@@ -2,6 +2,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+        <!-- Fuentes corporativas -->
+        <style>
+            @font-face {
+                font-family: 'GlyphaLTStd-Bold';
+                src: url('/fonts/GlyphaLTStd-Bold.otf') format('opentype');
+                font-weight: bold;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: 'Montserrat';
+                src: url('/fonts/Montserrat-Regular.otf') format('opentype');
+                font-weight: normal;
+                font-style: normal;
+            }
+            @font-face {
+                font-family: 'Montserrat';
+                src: url('/fonts/Montserrat-Bold.otf') format('opentype');
+                font-weight: bold;
+                font-style: normal;
+            }
+            body, html {
+                font-family: 'Montserrat', Arial, sans-serif;
+            }
+            h1, h2, h3, .hero-title {
+                font-family: 'GlyphaLTStd-Bold', Arial, sans-serif !important;
+                color: rgb(55,95,122) !important;
+            }
+        </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $projectName ?? 'Verifika' }} - {{ $projectPhrase ?? 'Ejercicios a medida, respuestas paso a paso y material listo para imprimir.' }}</title>
