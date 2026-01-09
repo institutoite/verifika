@@ -13,11 +13,26 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        $email = '71039910@verifika.ite.com.bo';
+        $phone = '71039910';
+
+        $data = [
             'name' => 'David',
-            'phone' => '71039910',
-            'email' => '71039910@verifika.ite.com.bo',
+            'phone' => $phone,
+            'email' => $email,
             'password' => Hash::make('123456789'),
-        ]);
+            'is_admin' => true,
+        ];
+
+        $existing = User::where('email', $email)
+            ->orWhere('phone', $phone)
+            ->first();
+
+        if ($existing) {
+            $existing->fill($data);
+            $existing->save();
+        } else {
+            User::create($data);
+        }
     }
 }

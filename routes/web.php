@@ -57,4 +57,10 @@ Route::middleware('auth')->group(function () {
     Route::put('practicos/{id}', [PracticoController::class, 'update'])->name('practicos.update');
 });
 
+// Panel de administración (solo admin)
+Route::middleware(['auth','admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/users', [\App\Http\Controllers\AdminController::class, 'users'])->name('users.index');
+    Route::get('/users/{id}', [\App\Http\Controllers\AdminController::class, 'userDetail'])->name('users.show');
+});
+
 require __DIR__.'/auth.php';
