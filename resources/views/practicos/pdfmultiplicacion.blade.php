@@ -46,24 +46,9 @@
         .pdf-membrete__email{
             font-size: 0.95em;
         }
-        .pdf-membrete__right{
-            width: 80px;
-            text-align: right;
-            vertical-align: top;
-            padding: 6px 8px 0 0;
-            font-size: 0;
-            line-height: 0;
-        }
-        .pdf-membrete__logo{
-            display: block;
-            margin: 0;
-            padding: 0;
-            border: 0;
-            vertical-align: top;
-            height: 44px;
-            width: auto;
-            max-width: 80px;
-        }
+        .pdf-membrete__right{ width: 66px; text-align: right; vertical-align: top; padding: 6px 8px 0 0; font-size: 0; line-height: 0; }
+        .pdf-membrete__logo-wrap{ display: inline-block; background:#eef9ff; border:1px solid #cfe8f2; border-radius:50%; width:44px; height:44px; padding:4px; box-sizing:border-box; overflow:hidden; }
+        .pdf-membrete__logo{ display:block; margin:0 auto; padding:0; border:0; vertical-align:middle; width:31px; height:31px; }
         .ej-titulo {
             font-size: 1.1em;
             font-weight: bold;
@@ -87,9 +72,11 @@
             &nbsp; | &nbsp; <span class="pdf-membrete__email"> Escríbeme:+59171324941</span>
           </div>
         </td>
-        <td class="pdf-membrete__right">
-          <img class="pdf-membrete__logo" src="{{ public_path('images/logo.png') }}" alt="Logo">
-        </td>
+                <td class="pdf-membrete__right">
+                    <div class="pdf-membrete__logo-wrap">
+                        <img class="pdf-membrete__logo" src="{{ public_path('images/logo.png') }}" alt="Logo" width="31" height="31">
+                    </div>
+                </td>
       </tr>
     </table>
 

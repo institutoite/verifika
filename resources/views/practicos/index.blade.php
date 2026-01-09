@@ -131,14 +131,21 @@
                                     <span class="bi bi-clipboard-check"></span>
                                 </a>
                                 @php
-                                    $esMultiplicacion = $practico->ejercicios->first() && $practico->ejercicios->first()->tipo === 'multiplicacion';
+                                    $primerEjercicio = $practico->ejercicios->first();
+                                    $primerTipo = $primerEjercicio ? $primerEjercicio->tipo : null;
+                                    $esMultiplicacion = $primerTipo === 'multiplicacion';
+                                    $esDivision = $primerTipo === 'division';
                                 @endphp
-                                @if($esMultiplicacion)
-                                    <a href="{{ route('practicos.imprimir', ['id' => $practico->id, 'tipo' => 'multiplicacion']) }}" class="btn btn-info btn-sm" target="_blank" title="Imprimir ambos">
+                                @if($esDivision)
+                                    <a href="{{ route('practicos.imprimirDivisionProcedimiento', ['id' => $practico->id]) }}" class="btn btn-info btn-sm" target="_blank" title="Imprimir división (procedimiento)">
+                                        <span class="bi bi-files"></span>
+                                    </a>
+                                @elseif($esMultiplicacion)
+                                    <a href="{{ route('practicos.imprimir', ['id' => $practico->id, 'tipo' => 'multiplicacion']) }}" class="btn btn-info btn-sm" target="_blank" title="Imprimir multiplicación">
                                         <span class="bi bi-files"></span>
                                     </a>
                                 @else
-                                    <a href="{{ route('practicos.imprimirDivisionProcedimiento', ['id' => $practico->id]) }}" class="btn btn-info btn-sm" target="_blank" title="Imprimir ambos (división)">
+                                    <a href="{{ route('practicos.imprimir', ['id' => $practico->id, 'tipo' => 'ambos']) }}" class="btn btn-info btn-sm" target="_blank" title="Imprimir ambos">
                                         <span class="bi bi-files"></span>
                                     </a>
                                 @endif

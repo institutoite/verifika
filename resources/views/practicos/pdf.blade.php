@@ -150,6 +150,10 @@
         width: 100%;
         background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         color: var(--text-light);
+        /* Ajustes para círculo blanco detrás del logo */
+        .pdf-membrete__right{ width: 66px; text-align: right; vertical-align: top; }
+        .pdf-membrete__logo-wrap{ display: inline-block; background:#eef9ff; border:1px solid #cfe8f2; border-radius:50%; width:44px; height:44px; padding:4px; box-sizing:border-box; overflow:hidden; }
+        .pdf-membrete__logo{ display:block; margin:0 auto; padding:0; border:0; vertical-align:middle; width:31px; height:31px; }
         border-radius: 1.2em 1.2em 0 0;
         margin: 0 0 6px 0;
         border-spacing: 0;
@@ -226,13 +230,17 @@
     </td>
 
     <!-- Logo arriba a la derecha (SIN ESPACIOS) -->
-    <td class="pdf-membrete__right">
-      <img
-        class="pdf-membrete__logo"
-        src="{{ public_path('images/logo.png') }}"
-        alt="Logo"
-      >
-    </td>
+        <td class="pdf-membrete__right">
+            <div class="pdf-membrete__logo-wrap">
+                <img
+                    class="pdf-membrete__logo"
+                    src="{{ public_path('images/logo.png') }}"
+                    alt="Logo"
+                    width="31"
+                    height="31"
+                >
+            </div>
+        </td>
 
   </tr>
   
