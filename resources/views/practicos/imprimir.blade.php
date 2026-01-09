@@ -36,7 +36,7 @@
                 @foreach($practico->ejercicios as $i => $ejercicio)
                 <tr>
                     <td>{{ $i+1 }}</td>
-                    <td>{{ $ejercicio->enunciado }}</td>
+                    <td>{!! $ejercicio->enunciado !!}</td>
                     @if($tipo === 'propuestos' || $tipo === 'ambos')
                         <td>
                             @foreach($ejercicio->operandos as $op)
@@ -45,7 +45,13 @@
                         </td>
                     @endif
                     @if($tipo === 'respuestas' || $tipo === 'ambos')
-                        <td>{{ $ejercicio->respuesta }}</td>
+                        <td>
+                            @if($ejercicio->tipo === 'division')
+                                Cociente: {{ $ejercicio->cociente }}, Resto: {{ $ejercicio->resto }}
+                            @else
+                                {{ $ejercicio->respuesta }}
+                            @endif
+                        </td>
                     @endif
                     <td>{{ $ejercicio->grado }}</td>
                 </tr>

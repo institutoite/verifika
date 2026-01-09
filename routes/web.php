@@ -21,6 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Nueva generación de divisiones
+Route::get('divisiones/crear-nueva', [App\Http\Controllers\DivisionNuevaController::class, 'create'])->name('divisiones.nueva.create');
+Route::post('divisiones/generar-nueva', [App\Http\Controllers\DivisionNuevaController::class, 'generar'])->name('divisiones.nueva.generar');
+
+
 // Solo rutas de sumas activas
 Route::get('sumas/crear', [SumaController::class, 'create'])->name('sumas.create');
 Route::post('sumas/generar', [SumaController::class, 'store'])->name('sumas.generar');
@@ -46,6 +51,7 @@ Route::middleware('auth')->group(function () {
     // Prácticos
     Route::get('practicos', [PracticoController::class, 'index'])->name('practicos.index');
     Route::get('practicos/{id}/ejercicios', [PracticoController::class, 'ejercicios'])->name('practicos.ejercicios');
+    Route::get('practicos/{id}/imprimir-division-procedimiento', [PracticoController::class, 'imprimirDivisionProcedimiento'])->name('practicos.imprimirDivisionProcedimiento');
     Route::get('practicos/{id}/imprimir/{tipo}', [PracticoController::class, 'imprimir'])->name('practicos.imprimir');
     Route::get('practicos/{id}/edit', [PracticoController::class, 'edit'])->name('practicos.edit');
     Route::put('practicos/{id}', [PracticoController::class, 'update'])->name('practicos.update');

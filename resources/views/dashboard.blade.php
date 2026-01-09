@@ -129,10 +129,10 @@
                 </a>
             </div>
             <div class="col">
-                <a href="#" class="operation-card text-decoration-none text-dark shadow-sm disabled" onclick="showConstruccion(event)">
+                <a href="{{ route('divisiones.nueva.create') }}" class="operation-card text-decoration-none text-dark shadow-sm">
                     <div class="operation-icon" style="color:var(--secondary-color);">➗</div>
                     <h4 class="fw-bold" style="color:var(--primary-color);">División</h4>
-                    <p class="mb-0 text-secondary">Próximamente</p>
+                    <p class="mb-0 text-secondary">Generar ejercicios de divisiones</p>
                 </a>
             </div>
             <div class="col">

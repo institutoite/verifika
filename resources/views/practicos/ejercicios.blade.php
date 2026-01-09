@@ -60,13 +60,19 @@
                                     @foreach($practico->ejercicios as $i => $ejercicio)
                                     <tr>
                                         <td>{{ $i+1 }}</td>
-                                        <td>{{ $ejercicio->enunciado }}</td>
+                                        <td>{!! $ejercicio->enunciado !!}</td>
                                         <td>
                                             @foreach($ejercicio->operandos as $op)
                                                 {{ $op->valor }}@if(!$loop->last), @endif
                                             @endforeach
                                         </td>
-                                        <td>{{ $ejercicio->respuesta }}</td>
+                                        <td>
+                                            @if($ejercicio->tipo === 'division')
+                                                Cociente: {{ $ejercicio->cociente }}, Resto: {{ $ejercicio->resto }}
+                                            @else
+                                                {{ $ejercicio->respuesta }}
+                                            @endif
+                                        </td>
                                         <td>{{ $ejercicio->grado }}</td>
                                     </tr>
                                     @endforeach

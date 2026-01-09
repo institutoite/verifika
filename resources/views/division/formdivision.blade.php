@@ -1,101 +1,41 @@
-@extends('adminlte::page')
-
-@section('title', 'Divisiones')
-
-@section('css')
-<link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
-@stop
-
-@section('content')
-    
-    <div class="card mt-5">
-                
-        <div class="card-header bg-primary">
-            <h4 class="text-center">GENERADOR DE DIVISIONES</h4>
-        </div>
-    
-        
-        <div class="card-body">
-        <form action="{{ route("divisiones.imprimir") }}" method="POST">
-            @csrf
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                    <div class="card">
-                        <div class="card-header colorturquesa">
-                            DIVIDENDO
-                        </div>
-                        <div class="card-body">
-                            <div class="row g-2">
-                                <div class="col-md">
-                                    <div class="form-floating">
-                                        <input type="number"  type="number" name="digitosdo" id="digitos" class="form-control" placeholder="Ingres la cantidad digitos del divisor" value="">
-                                    </div>
-                                </div>
-                                <div class="col-md">
-                                    <div class="form-floating">
-                                        <select name="dificultaddo" class="form-select form-control" id="floatingSelectGrid">
-                                            <option value="1">FACILINGO</option>
-                                            <option value="2">FACIL</option>
-                                            <option value="3">NORMAL</option>
-                                            <option value="4">DIFICIL</option>
-                                            <option value="5">SUPERDIFICIL</option>
-                                            <option value="6">ULTRADIFICIL</option>
-                                            <option value="7">TIPOEXAMEN</option>
-                                        </select>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>	
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">	
-                    <div class="card">
-                        <div class="card-header colorturquesa">
-                            DIVISOR
-                        </div>
-                        <div class="card-body">
-                            <div class="row g-2">
-                                <div class="col-md">
-                                    <div class="form-floating">
-                                    <input input type="number" name="digitosdor" id="digitos" class="form-control" placeholder="Ingres la cantidad digitos del divisor" value="">
-                                    </div>
-                                </div>
-                                <div class="col-md">
-                                    <div class="form-floating">
-                                        <select name="dificultaddor" class="form-select form-control" id="floatingSelectGrid">
-                                            <option value="1">FACILINGO</option>
-                                            <option value="2">FACIL</option>
-                                            <option value="3">NORMAL</option>
-                                            <option value="4">DIFICIL</option>
-                                            <option value="5">SUPERDIFICIL</option>
-                                            <option value="6">ULTRADIFICIL</option>
-                                            <option value="7">TIPOEXAMEN</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-5"></div>
-                    
-                        <input type="submit" name="Aceptar" class="btn btn-primary col-2" value="Generar">
-                    
-                <div class="col-5"></div>	
-            </div>
-            </form>
-        </div>
-    </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+@section('title', 'Verifika - Generar divisiones')
+<x-guest-layout>
+	<div class="flex flex-col items-center justify-center min-h-[60vh] px-2">
+		<div class="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-100 dark:border-corp-dark">
+			<h1 class="text-2xl font-bold text-center mb-6 text-corp dark:text-corp tracking-tight">Generar divisiones</h1>
+			<form method="POST" action="{{ route('divisiones.nueva.generar') }}" class="space-y-6">
+				@csrf
+				<div class="px-2 sm:px-4">
+					<x-input-label for="dificultad" :value="'Dificultad'" class="font-semibold text-corp" />
+					<select name="dificultad" id="dificultad" class="block mt-1 w-full rounded-lg border-corp dark:border-corp-dark focus:border-corp focus:ring-corp bg-gray-50 dark:bg-gray-800">
+						<option value="FACILINGO">FACILINGO</option>
+						<option value="FACIL">FACIL</option>
+						<option value="NORMAL">NORMAL</option>
+						<option value="DIFICIL">DIFICIL</option>
+						<option value="SUPERDIFICIL">SUPERDIFICIL</option>
+						<option value="ULTRADIFICIL">ULTRADIFICIL</option>
+						<option value="TIPOEXAMEN">TIPOEXAMEN</option>
+					</select>
+				</div>
+				<div class="px-2 sm:px-4">
+					<x-input-label for="digitos_dividendo" :value="'Cantidad de dígitos del dividendo'" class="font-semibold text-corp" />
+					<x-text-input id="digitos_dividendo" class="block mt-1 w-full rounded-lg border-corp dark:border-corp-dark focus:border-corp focus:ring-corp bg-gray-50 dark:bg-gray-800" type="number" name="digitos_dividendo" required min="1" placeholder="Ej: 3" />
+				</div>
+				<div class="px-2 sm:px-4">
+					<x-input-label for="digitos_divisor" :value="'Cantidad de dígitos del divisor'" class="font-semibold text-corp" />
+					<x-text-input id="digitos_divisor" class="block mt-1 w-full rounded-lg border-corp dark:border-corp-dark focus:border-corp focus:ring-corp bg-gray-50 dark:bg-gray-800" type="number" name="digitos_divisor" required min="1" placeholder="Ej: 2" />
+				</div>
+				<div class="px-2 sm:px-4">
+					<x-input-label for="cantidad" :value="'Cantidad de ejercicios a generar'" class="font-semibold text-corp" />
+					<x-text-input id="cantidad" class="block mt-1 w-full rounded-lg border-corp dark:border-corp-dark focus:border-corp focus:ring-corp bg-gray-50 dark:bg-gray-800" type="number" name="cantidad" required min="1" max="50" placeholder="Ej: 10" />
+				</div>
+				<div class="px-2 sm:px-4 text-center">
+					<x-primary-button class="w-full py-3 rounded-lg text-base font-bold bg-corp hover:bg-corp-dark transition-colors flex items-center justify-center">
+						Generar divisiones
+					</x-primary-button>
+				</div>
+			</form>
+		</div>
+	</div>
+</x-guest-layout>
+<!-- Archivo eliminado para crear un nuevo formulario de división moderno -->

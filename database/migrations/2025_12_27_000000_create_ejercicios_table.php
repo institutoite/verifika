@@ -14,8 +14,10 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('practico_id')->nullable();
             $table->string('tipo'); // suma, resta, multiplicacion, division
-            $table->string('enunciado'); // Ejercicio generado
+            $table->text('enunciado'); // Ejercicio generado
             $table->string('respuesta'); // Respuesta correcta
+            $table->integer('cociente')->nullable(); // Cociente para división
+            $table->integer('resto')->nullable(); // Resto para división
             $table->string('grado')->nullable(); // Grado de dificultad
             $table->timestamps();
 

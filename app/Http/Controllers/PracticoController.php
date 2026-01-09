@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Practico;
+
 use Mpdf\Mpdf;
+use App\Services\DivisionLatinoamericana;
 
 class PracticoController extends Controller
    
@@ -44,6 +46,16 @@ class PracticoController extends Controller
     public function imprimir($id, $tipo = 'propuestos')
     {
         $practico = Practico::with('ejercicios.operandos')->findOrFail($id);
+        if ($tipo === 'division' || $tipo === 'propuestos' || $tipo === 'respuestas') {
+            $html = view('practicos.divisionpdf', compact('practico', 'tipo'))->render();
+            $mpdf = new Mpdf(['mode' => 'utf-8', 'format' => 'A4']);
+            $mpdf->WriteHTML($html);
+            $filename = 'division_' . $practico->id . '_' . $tipo . '.pdf';
+            return response($mpdf->Output($filename, 'S'), 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="' . $filename . '"'
+            ]);
+        }
         if ($tipo === 'multiplicacion') {
             $practicos = collect([$practico]);
             $html = view('practicos.pdfmultiplicacion', compact('practicos'))->render();
@@ -64,6 +76,45 @@ class PracticoController extends Controller
             'Content-Disposition' => 'inline; filename="' . $filename . '"'
         ]);
     }
+     /**
+     * Genera el PDF de división con desarrollo paso a paso (formato latinoamericano).
+     */
+    public function imprimirDivisionProcedimiento($id)
+    {
+        $practico = Practico::with('ejercicios.operandos')->findOrFail($id);
+        $esDivision = $practico->ejercicios->first() && $practico->ejercicios->first()->tipo === 'division';
+        if (!$esDivision) {
+            abort(404, 'Este práctico no es de división.');
+        }
+        $pasosEjercicios = [];
+        foreach ($practico->ejercicios as $ej) {
+            if ($ej->tipo === 'division' && isset($ej->operandos[0]) && isset($ej->operandos[1])) {
+                $dividendo = (string)$ej->operandos[0]->valor;
+                $divisor = (int)$ej->operandos[1]->valor;
+                $pasosEjercicios[] = DivisionLatinoamericana::resolver($dividendo, $divisor);
+            } else {
+                $pasosEjercicios[] = null;
+            }
+        }
+        // Si se pasa ?debug=1 en la URL, mostrar el JSON en vez del PDF
+        if (request()->has('debug')) {
+            return response()->json($pasosEjercicios);
+        }
+        try {
+            $html = view('practicos.divisionprocedimiento', compact('practico', 'pasosEjercicios'))->render();
+            $mpdf = new Mpdf(['mode' => 'utf-8', 'format' => 'A4']);
+            $mpdf->WriteHTML($html);
+            $filename = 'division_procedimiento_' . $practico->id . '.pdf';
+            return response($mpdf->Output($filename, 'S'), 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="' . $filename . '"'
+            ]);
+        } catch (\Throwable $e) {
+            return response("ERROR: " . $e->getMessage() . "\n\n" . $e->getTraceAsString(), 500)
+                ->header('Content-Type', 'text/plain');
+        }
+    }
+    
     public function destroy($id)
     {
         $practico = Practico::findOrFail($id);

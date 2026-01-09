@@ -133,9 +133,15 @@
                                 @php
                                     $esMultiplicacion = $practico->ejercicios->first() && $practico->ejercicios->first()->tipo === 'multiplicacion';
                                 @endphp
-                                <a href="{{ route('practicos.imprimir', ['id' => $practico->id, 'tipo' => $esMultiplicacion ? 'multiplicacion' : 'ambos']) }}" class="btn btn-info btn-sm" target="_blank" title="Imprimir ambos">
-                                    <span class="bi bi-files"></span>
-                                </a>
+                                @if($esMultiplicacion)
+                                    <a href="{{ route('practicos.imprimir', ['id' => $practico->id, 'tipo' => 'multiplicacion']) }}" class="btn btn-info btn-sm" target="_blank" title="Imprimir ambos">
+                                        <span class="bi bi-files"></span>
+                                    </a>
+                                @else
+                                    <a href="{{ route('practicos.imprimirDivisionProcedimiento', ['id' => $practico->id]) }}" class="btn btn-info btn-sm" target="_blank" title="Imprimir ambos (división)">
+                                        <span class="bi bi-files"></span>
+                                    </a>
+                                @endif
                                 <a href="{{ route('practicos.edit', $practico->id) }}" class="btn btn-warning btn-sm" title="Editar">
                                     <span class="bi bi-pencil-square"></span>
                                 </a>

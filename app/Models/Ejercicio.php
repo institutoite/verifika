@@ -15,6 +15,8 @@ class Ejercicio extends Model
         'respuesta',
         'grado',
         'practico_id',
+        'cociente',
+        'resto',
     ];
 
     public function operandos()

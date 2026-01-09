@@ -364,7 +364,11 @@
 
                         <div class="inciso">
                             @if($tipo === 'respuestas')
-                                <div class="respuesta">{{ $inciso }}) {{ $respuesta }}</div>
+                                @if($ej && $ej->tipo === 'division')
+                                    <div class="respuesta">{{ $inciso }}) Cociente: {{ $ej->cociente }}, Resto: {{ $ej->resto }}</div>
+                                @else
+                                    <div class="respuesta">{{ $inciso }}) {{ $respuesta }}</div>
+                                @endif
                             @else
                                 <span class="inciso-label">{{ $inciso }})</span>
                                 <table class="suma-matriz">
